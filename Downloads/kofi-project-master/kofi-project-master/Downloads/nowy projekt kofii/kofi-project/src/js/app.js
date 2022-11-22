@@ -1,6 +1,7 @@
+import { classNames, select } from './settings.js';
 import Product from './Product.js';
 import Contact from './Contact.js';
-import { classNames, select } from './settings.js';
+
 const app = {
   initData: function () {
     const thisApp = this;
