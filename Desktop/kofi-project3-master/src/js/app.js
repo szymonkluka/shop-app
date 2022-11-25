@@ -63,7 +63,7 @@ const app = {
       }
     }
 
-    document.querySelector(select.containerOf.discoverButton).setAttribute('href', '#' + [pageId][0]);
+    document.querySelector('.maintitle a').setAttribute('href', '#' + [pageId][0]);
 
 
   },

@@ -8,7 +8,6 @@ export const select = {
   containerOf: {
     productList: '#product-list',
     sides: '#sides',
-    discoverButton: '.maintitle a',
     newForm: '.newForm',
     names: '#name',
     titles: '[name="title"]',
