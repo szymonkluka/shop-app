@@ -1,6 +1,6 @@
 import styles from './Product.module.scss';
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import ProductImage from '../ProductImage/ProductImage';
 import ProductForm from '../ProductForm/ProductForm';
 
@@ -14,10 +14,7 @@ const Product = ({ name, title, basePrice, colors, sizes }) => {
     Summary
     ==============
     Name: ${title} 
-    Price: ${getPrice(
-      basePrice,
-      sizes.find((item) => item.name === currentSize).additionalPrice
-    )}
+    Price: ${fullPrice}
     Size: ${currentSize}
     Color: ${currentColor}`);
   };
@@ -25,6 +22,13 @@ const Product = ({ name, title, basePrice, colors, sizes }) => {
   const getPrice = (basePrice, additionalPrice) => {
     return basePrice + additionalPrice;
   };
+
+  const fullPrice = useMemo (()=> getPrice(
+    basePrice,
+    sizes.find((item) => item.name === currentSize).additionalPrice
+  ),
+  [basePrice, currentSize, sizes]
+  );
 
   return (
     <article className={styles.product}>
@@ -34,10 +38,7 @@ const Product = ({ name, title, basePrice, colors, sizes }) => {
           <h2 className={styles.name}>{title}</h2>
           <span className={styles.price}>
             Price:
-            {getPrice(
-              basePrice,
-              sizes.find((item) => item.name === currentSize).additionalPrice
-            )}
+            {fullPrice}
             $
           </span>
         </header>
