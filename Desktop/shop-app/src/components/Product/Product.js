@@ -14,7 +14,7 @@ const Product = ({ name, title, basePrice, colors, sizes }) => {
     Summary
     ==============
     Name: ${title} 
-    Price: ${fullPrice}
+    Price: ${priceUseMemo}
     Size: ${currentSize}
     Color: ${currentColor}`);
   };
@@ -23,7 +23,7 @@ const Product = ({ name, title, basePrice, colors, sizes }) => {
     return basePrice + additionalPrice;
   };
 
-  const fullPrice = useMemo (()=> getPrice(
+  const priceUseMemo = useMemo (()=> getPrice(
     basePrice,
     sizes.find((item) => item.name === currentSize).additionalPrice
   ),
@@ -38,7 +38,7 @@ const Product = ({ name, title, basePrice, colors, sizes }) => {
           <h2 className={styles.name}>{title}</h2>
           <span className={styles.price}>
             Price:
-            {fullPrice}
+            {priceUseMemo}
             $
           </span>
         </header>
