@@ -1,0 +1,22 @@
+@use 'sass:math';
+@import '../../styles/settings.scss';
+
+.product {
+  display: flex;
+  flex-wrap: wrap;
+  margin: ($base-size * 6) ($base-size * 3);
+  background: $background-gradient;
+  border-radius: $radius;
+  box-shadow: $box-shadow;
+  padding: ($base-size * 2) $base-size;
+  position: relative;
+}
+
+.name {
+  margin: $base-size 0;
+  font-size: $base-size * 3;
+}
+
+.price {
+  font-size: $base-size * 1.5;
+}
